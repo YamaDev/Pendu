@@ -1,4 +1,3 @@
-#coding:utf-8
 
 #######################################
 ###### Déclaration des imports ########
@@ -42,6 +41,8 @@ while game_on:
                 # word_to_find = displaySecretWord(secret_word)
                 print("mot a trouver: ", word_to_find)
                 print("Il vous reste {} coups: ".format(hits))
+                doIwin()
             else:
                 print("mot a trouver: ", word_to_find)
                 print("Il vous reste {} coups: ".format(hits))
+                doIwin()

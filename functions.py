@@ -91,36 +91,33 @@ def isLetterAlreayUsed(letter_to_test, hits, wdtotest):
 	global letter_already_used
 
 	if len(letter_already_used) == 0:
-		for letter in wdtotest:
-			if letter != letter_to_test:
-				letter_already_used.append(letter_to_test)
-				print("Désolé, la lettre ne se trouve pas dans le mot.")
-				hits -= 1
-				return hits, True
-			else:
-				letter_already_used.append(letter_to_test)
-				print("Bravo. Une lettre de trouvée")
-				return hits, True
+		if letter_to_test not in wdtotest:
+			letter_already_used.append(letter_to_test)
+			print("Désolé, la lettre ne se trouve pas dans le mot.")
+			hits -= 1
+			return hits, True
+		else:
+			letter_already_used.append(letter_to_test)
+			print("Bravo. Une lettre de trouvée")
+			return hits, True
 	else:
-		for letter in letter_already_used:
-			if letter == letter_to_test:
-				print("Lettre déja recherchée")
-				print("Voici votre liste de lettre : ", letter_already_used)
+		if letter_to_test in letter_already_used:
+			print("Lettre déja recherchée")
+			print("Voici votre liste de lettre : ", letter_already_used)
+			hits -= 1
+			return hits, False
+		else:
+			if letter_to_test not in wdtotest:
+				letter_already_used.append(letter_to_test)
 				hits -= 1
-				return hits, False
+				print("Désolé, la lettre ne se trouve toujours pas dans le mot.")
+				print("lettre déjà enregistrées : ", letter_already_used)
+				return hits, True
 			else:
-				for letter in wdtotest:
-					if letter != letter_to_test:
-						letter_already_used.append(letter_to_test)
-						hits -= 1
-						print("Désolé, la lettre ne se trouve toujours pas dans le mot.")
-						print("lettre déjà enregistrées : ", letter_already_used)
-						return hits, True
-					else:
-						letter_already_used.append(letter_to_test)
-						print("Bien. Une lettre de trouvée")
-						print("lettre déjà enregistrées : ", letter_already_used)
-						return hits, True
+				letter_already_used.append(letter_to_test)
+				print("Bien. Une lettre de trouvée")
+				print("lettre déjà enregistrées : ", letter_already_used)
+				return hits, True
 
 
 def isGoodLetter(wtfd, user_letter):
@@ -130,6 +127,9 @@ def isGoodLetter(wtfd, user_letter):
 			good_letter += user_letter
 	return good_letter
 
+
+def doIwin():
+	print("gagne")
 
 def word_to_display(finding_word, good_letter):
 	word_to_display = ""
