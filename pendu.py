@@ -1,10 +1,8 @@
-
 #######################################
 ###### Déclaration des imports ########
 #######################################
 
 from functions import *
-
 
 #########################################
 # Déclaration des variables pour le jeu #
@@ -14,7 +12,6 @@ is_secret_word_discovered = False
 testedLetter = []
 secret_word = ""
 word_to_find = ""
-
 
 #########################################
 ######### Déroulement du jeu ############
@@ -41,8 +38,16 @@ while game_on:
                 # word_to_find = displaySecretWord(secret_word)
                 print("mot a trouver: ", word_to_find)
                 print("Il vous reste {} coups: ".format(hits))
-                doIwin()
+                # is_secret_word_discovered = doIwin(secret_word, word_to_find)
+                # if is_secret_word_discovered:
+                #     break
+                # else:
+                #     continue
             else:
                 print("mot a trouver: ", word_to_find)
                 print("Il vous reste {} coups: ".format(hits))
-                doIwin()
+                # is_secret_word_discovered = doIwin(secret_word, word_to_find)
+                # if is_secret_word_discovered:
+                #     break
+                # else:
+                #     continue
